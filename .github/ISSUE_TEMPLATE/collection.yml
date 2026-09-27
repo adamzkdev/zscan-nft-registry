@@ -1,0 +1,52 @@
+name: Add or update a collection
+description: List a Zcash NFT collection on ZScan, or correct one.
+title: "Collection: "
+labels: [collection]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Collection name
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Where do the items live?
+      options:
+        - Zcash inscriptions (ZRC-721)
+        - Zcash inscriptions minted through a launchpad
+        - A marketplace's own records (not on chain)
+    validations:
+      required: true
+  - type: input
+    id: onchain
+    attributes:
+      label: ZRC-721 name, or the address every mint paid
+      description: For a ZRC-721 collection, its name in the deploy inscription. For launchpad mints, the creator address the commit transactions pay.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: One or two factual sentences.
+    validations:
+      required: true
+  - type: input
+    id: links
+    attributes:
+      label: Website, X, Discord
+  - type: input
+    id: logo
+    attributes:
+      label: Logo URL (square, HTTPS or ipfs://)
+  - type: input
+    id: supply
+    attributes:
+      label: Supply, mint date, mint price
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Public links that confirm the facts above (announcement, deploy inscription, marketplace page). Required.
+    validations:
+      required: true
